@@ -8,7 +8,9 @@ import React, {
 
 import { useSelector, useDispatch } from 'react-redux';
 
-import { CreateTodoActionCreator, editTodoActionCreator, toggleTodoActionCreator, deleteTodoActionCreator, SelectTodoActionCreator } from '../redux-og';
+// import { createTodoActionCreator, editTodoActionCreator, toggleTodoActionCreator, deleteTodoActionCreator, selectTodoActionCreator } from '../redux-og';
+import { createTodoActionCreator, editTodoActionCreator, toggleTodoActionCreator, deleteTodoActionCreator, selectTodoActionCreator } from '../redux-toolkit';
+
 import { State } from "../type";
 import "./App.css";
 
@@ -38,12 +40,12 @@ const App = function () {
   const handleCreateNewTodo = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     if (!newTodoInput.length) return;
-    dispatch(CreateTodoActionCreator({ desc: newTodoInput }));
+    dispatch(createTodoActionCreator({ desc: newTodoInput }));
     setNewTodoInput('');
   };
 
   const handleSelectTodo = (todoId: string) => (): void => {
-    dispatch(SelectTodoActionCreator({ id: todoId }))
+    dispatch(selectTodoActionCreator({ id: todoId }))
   };
 
   const handleEdit = (): void => {

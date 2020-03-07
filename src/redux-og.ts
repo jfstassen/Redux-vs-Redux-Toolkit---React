@@ -2,7 +2,7 @@ import { combineReducers, createStore, applyMiddleware } from "redux";
 import uuid from "uuid/v4";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
-import {composeWithDevTools } from 'redux-devtools-extension';
+import { composeWithDevTools } from "redux-devtools-extension";
 
 import { Todo } from "./type";
 // Constants
@@ -17,7 +17,7 @@ interface CreateTodoActionType {
     type: typeof CREATE_TODO;
     payload: Todo;
 }
-export const CreateTodoActionCreator = ({
+export const createTodoActionCreator = ({
     desc
 }: {
     desc: string;
@@ -85,7 +85,7 @@ interface SelectTodoActionType {
     type: typeof SELECT_TODO;
     payload: { id: string };
 }
-export const SelectTodoActionCreator = ({
+export const selectTodoActionCreator = ({
     id
 }: {
     id: string;
